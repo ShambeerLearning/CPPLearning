@@ -4,4 +4,4 @@ project(CPPLearning)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(CPPLearning
-        labs/lab-1-1_lesson-2.cpp)
+        other/other.cpp)
