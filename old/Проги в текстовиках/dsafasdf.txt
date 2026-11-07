@@ -1,0 +1,193 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main() {
+	setlocale(LC_ALL, "Russian");
+	int S, S1, S2;
+	float a, b, c, D;
+	double x, x1, x2;
+
+	string s, g, t;
+
+	const int MaxInt = 2147483647;
+	const int MinInt = -2147483647;
+
+	cout << "Введите значение A = ";
+	while (!(cin >> a) || (a>MaxInt || a<MinInt) || a == 0 || (cin.peek() != '\n'))
+	{
+		cin.clear();
+		while (cin.get() != '\n');
+		cout << endl << "Иди в жопу с такими цифрами мудак ебаный. Введи нормально число A" << endl;
+	}
+	cout << "Введите значение B = ";
+	while (!(cin >> b) || (b > MaxInt || b < MinInt) || b == 0 || (cin.peek() != '\n')) {
+		cin.clear();
+		while (cin.get() != '\n');
+		cout << endl << "Иди в жопу с такими цифрами мудак ебаный. Введи нормально число B" << endl;
+	}
+	cout << "Введите значение C = ";
+	while (!(cin >> c) || (c > MaxInt || c < MinInt) || c == 0 || (cin.peek() != '\n')) {
+		cin.clear();
+		while (cin.get() != '\n');
+		cout << endl << "Иди в жопу с такими цифрами мудак ебаный. Введи нормально число C" << endl;
+	}
+
+	cout << " " << endl;
+
+	D = b * b - 4 * a * c;
+	cout << "Дискриминант D = " << D << endl;
+	cout << " " << endl;
+
+	if (D == 0)
+	{
+		x = (b * (-1)) / (2 * a);
+		cout << " " << endl;
+		cout << "Дискриминант равен 0 " << endl;
+		cout << " " << endl;
+		cout << "Корень x = " << x << endl;
+		if (int(x) == double(x)) {
+			cout << " " << endl;
+		}
+		if (int(x) != double(x)) {
+			if (x > 0)
+			{
+				S = x + 0.5;
+			}
+			else
+			{
+				S = x - 0.5;
+			}
+			cout << " " << endl;
+			cout << "КОРЕНЬ ОКРУГЛЁННЫЙ ПО МНЕНИЮ ПРОГРАММЫ x = " << S << endl;
+			cout << " " << endl;
+			cout << "Хочешь увидеть корень x округлённый в ту и другую сторону? Y - да , N - нет" << endl;
+			while (true)
+			{
+				try
+				{
+					cout << "Ну так чё? - ";
+					cin >> s;
+					if (s == "Y") {
+						cout << " " << endl;
+						cout << "Первый корень округлённый в большую сторону x = " << floor(x) << endl;
+						cout << "Первый корень округлённый в меньшую сторону x = " << trunc(x) << endl;
+						break;
+					}
+					if (s == "N") {
+						cout << endl << "А ну всё тогда давай пока" << endl;
+						break;
+					}
+					else { throw 1; }
+
+				}
+				catch (...) { cout << endl << "Дебила кусок пиши Y или N" << endl; }
+
+			}
+		}
+	}
+
+	if (D > 0)
+	{
+
+		x1 = ((b * (-1)) - sqrt(D)) / (2 * a);
+		x2 = ((b * (-1)) + sqrt(D)) / (2 * a);
+
+
+		cout << "Первый корень x1 = " << x1 << endl;
+		cout << " " << endl;
+		if (int(x1) != double(x1)) {
+			if (x1 > 0)
+			{
+				S1 = x1 + 0.5;
+			}
+			else
+			{
+				S1 = x1 - 0.5;
+			}
+			cout << "ПЕРВЫЙ КОРЕНЬ ОКРУГЛЁННЫЙ ПО МНЕНИЮ ПРОГРАММЫ x1 = " << S1 << endl;
+			cout << " " << endl;
+			cout << "Хочешь увидеть корень x1 округлённый в ту и другую сторону? Y - да , N - нет" << endl;
+
+
+			while (true)
+			{
+				try
+				{
+					cout << "Ну так чё? - ";
+					cin >> g;
+					if (g == "Y") {
+						cout << " " << endl;
+						cout << "Первый корень округлённый в большую сторону x1 = " << floor(x1) << endl;
+						cout << "Первый корень округлённый в меньшую сторону x1 = " << trunc(x1) << endl;
+						break;
+					}
+					if (g == "N") {
+						cout << endl << "А ну тогда идём дальше" << endl;
+						break;
+					}
+					else { throw 1; }
+
+				}
+				catch (...) { cout << endl << "Дебила кусок пиши Y или N" << endl; }
+
+			}
+
+
+
+			cout << " " << endl;
+		}
+		cout << " " << endl;
+
+		cout << "Второй корень x2 = " << x2 << endl;
+		cout << " " << endl;
+		if (int(x2) == double(x2)) {
+			cout << " " << endl;
+		}
+		else {
+			if (x2 > 0)
+			{
+				S2 = x2 + 0.5;
+			}
+			else
+			{
+				S2 = x2 - 0.5;
+			}
+			cout << "ВТОРОЙ КОРЕНЬ ОКРУГЛЁННЫЙ ПО МНЕНИЮ ПРОГРАММЫ x2 = " << S2 << endl;
+
+			cout << " " << endl;
+			cout << "Хочешь увидеть корень x2 округлённый в ту и другую сторону? Y - да , N - нет" << endl;
+			while (true)
+			{
+				try
+				{
+					cout << "Ну так чё? - ";
+					cin >> t;
+					if (t == "Y") {
+						cout << " " << endl;
+						cout << "Первый корень округлённый в большую сторону x2 = " << floor(x2) << endl;
+						cout << "Первый корень округлённый в меньшую сторону x2 = " << trunc(x2) << endl;
+						break;
+					}
+					if (t == "N") {
+						cout << endl << "А ну тогда давай пока" << endl;
+						break;
+					}
+					else { throw 1; }
+
+				}
+				catch (...) { cout << endl << "Дебила кусок пиши Y или N" << endl; }
+
+			}
+		}
+	}
+
+	if (D < 0)
+	{
+		cout << " " << endl;
+		cout << "CHUMBA TI SOVSEM YOBNUTIY? POPEI COLOSIKI" << endl;
+		cout << " " << endl;
+	}
+	system("pause");
+
+}

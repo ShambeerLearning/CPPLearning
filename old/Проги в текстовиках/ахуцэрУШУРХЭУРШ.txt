@@ -1,0 +1,100 @@
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int a, P;
+	cout << "Введите число - ";
+	cin >> a;
+	P = a * 4;
+	cout << "Периметр - " << P << endl;
+	system("pause");
+}
+ 
+
+
+
+-----------------------------------------------------
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+float pepsi(float a)
+{
+	float S;
+	if (a > 0)
+	{
+		S = a * 2;
+	}
+	else
+	{
+		S = a * (-1);
+	}
+	return S;
+}
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	float a, b;
+	cout << "Введите число - ";
+	cin >> a;
+	b = pepsi(a);
+	cout << "Ответ - " << b << endl;
+	system("pause");
+}
+
+--------------------------------------------------------------
+
+#include "stdafx.h"
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	float a, b, C;
+	cout << "Введите число - ";
+	cin >> a;
+	cout << "Введите степень - ";
+	cin >> b;
+	C = pow(a, b);
+	cout << "Ответ - " << C << endl;
+	system("pause");
+}
+
+
+-------------------------------------------------------------------------------
+
+
+#include "stdafx.h"
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	float x, a, c;
+	cout << "Введите число - ";
+	cin >> x;
+	if (x < 0)
+	{
+		cout << "Условие 1" << endl;
+		a = pow(pow(x, 3) + 1, 2);
+		cout << "Ответ - " << a << endl;
+	}
+	if (0 <= x && x < 1)
+	{
+		cout << "Условие 2" << endl;
+		cout << "Ответ - 0" << endl;
+	}
+	if (x >= 1)
+	{
+		cout << "Условие 3" << endl;
+		c = pow(x, 2) - (5 * x) + 1;
+		cout << "Ответ - " << abs(c) << endl;
+	}
+	system("pause");
+}
+
+

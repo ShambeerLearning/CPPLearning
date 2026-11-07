@@ -1,3 +1,55 @@
-/.idea/
-/dist/
-/cmake-build-debug/
+# Папки с бинарниками, сборками и кэшами
+.build/
+cmake-build-debug/
+cmake-build-release/
+out/
+bin/
+obj/
+
+# Пакеты NuGet (если используются)
+packages/
+*.nupkg
+
+# Файлы настроек IDE (JetBrains CLion / Visual Studio / VS Code)
+.idea/
+.vs/
+.vscode/
+*.user
+*.sln.DotSettings.user
+*.suo
+*.sdf
+*.ipch
+
+# Временные файлы Visual Studio C++ (сгенерированные)
+*.tlog
+*.log
+*.idb
+*.pdb
+*.ilk
+*.obj
+*.exe
+*.iobj
+*.ipdb
+*.recipe
+*.pch
+*.enc
+*.res
+
+# Файлы кэша ReSharper (если используется)
+_ReSharper.*/
+*.[Rr]e[Ss]harper
+riderModule.iml
+
+# Конфигурации CMake (дополнительные временные)
+CMakeCache.txt
+CMakeFiles/
+.ninja_deps
+.ninja_log
+build.ninja
+
+# Временные файлы ОС
+Thumbs.db
+.DS_Store
+
+# Инструментарий и AI-плагины
+.clineignore

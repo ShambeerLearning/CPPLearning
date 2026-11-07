@@ -1,0 +1,65 @@
+#include <iostream>
+
+int xuy(int arr[], int result1, int ID) 
+{
+    if (arr[ID] == NULL) 
+        {
+            arr[ID] = result1;
+        }
+    return arr[ID];
+}
+void chlen(int arr[])
+{
+    for (int i = 0; i < 5; i++)
+    {
+        std::cout << "История последних результатов - " << arr[i] << std::endl;
+    }
+}
+int main() {
+    setlocale(LC_ALL, "ru");
+    int a, b, result;
+    char q;
+    bool exit = false;
+    result = 0;
+
+    int ID = 0;
+
+    int mass[5]{NULL,NULL, NULL, NULL, NULL};
+    std::cout << "Если хотите завершить программу введите любую букву" << std::endl;
+    while (exit == false) {
+        std::cout << "Введите пример - ";
+        std::cin >> a;
+        std::cin >> q;
+        std::cin >> b;
+
+        if (!a && !b) break;
+
+        switch (q)
+        {
+        case '+':
+            result = a + b;
+            break;
+        case '-':
+            result = a - b;
+            break;
+        case '':
+            result = a b;
+            break;
+        case '/':
+            result = a / b;
+            break;
+        case 'h':
+            chlen(mass);
+        default:
+            exit = true;
+
+        }
+        if (ID >= 5) ID /= 5;
+        mass[ID] = xuy(mass, result, ID);
+
+        std::cout << "Результат - " << result << std::endl;
+
+        ID++;
+    }
+    std::system("pause");
+}

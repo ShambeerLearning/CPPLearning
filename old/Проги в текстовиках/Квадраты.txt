@@ -1,0 +1,24 @@
+#include "stdafx.h"
+#include <iostream>
+
+int main()
+{
+	setlocale(LC_ALL, "ru");
+	int num, f;
+	std::cout << "¬ведите количество чисел  - ";
+	std::cin >> f;
+	int *a = new int[f];
+	std::cout << "¬ведите сами числа через пробел - ";
+	for (int g = 0; g < f; g++)
+	{
+		std::cin >> num;
+		a[g] = num;
+	}
+	std::cout << " " << std::endl;
+	std::cout << "–езультат:" << std::endl;
+	for (int i = 0; i < f; i++)
+	{
+		std::cout << a[i] << " " << a[i] * a[i] << std::endl;
+	}
+	std::system("pause");
+}

@@ -1,0 +1,261 @@
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+void print(int Array[], int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		cout << "Array [" << i << "]" << " " << "->" << " " << Array[i] << "\n";
+	}
+}
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int mas[10] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+	print(mas, 10);
+	system("pause");
+}
+
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------------------------------
+
+
+
+
+
+
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+void print(int *Array, int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		cout << Array[i] << endl;
+	}
+}
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int n = 10;
+	int *mass = new int[n];
+	for (int i = 0; i < n; i++)
+	{
+		mass[i] = i * i;
+	}
+	print(mass, n);
+	delete[]mass;
+	system("pause");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+----------------------------------------------------------------------------------------
+
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+void print(int *Array, int n)
+{
+	for (int i = 0; i < n; i++)
+	{
+		cout << Array[i] << endl;
+	}
+}
+int * create(int n)
+{
+	int *Array = new int[n];
+	for (int i = 0; i < n; i++)
+	{
+		Array[i] = i * i;
+	}
+	return Array;
+}
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int n = 5;
+	int *mass = create(n);
+	print(mass, n);
+	system("pause");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------
+
+
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	float b[4][5];
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 5; j++)
+		{
+			cout << "b[" << i << "] [" << j << "] -> ";
+			cin >> b[i][j];
+		}
+	}
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 5; j++)
+		{
+			cout << "b[" << i << "] [" << j << "] -> " << b[i][j] << endl;
+
+		}
+	}
+	system("pause");
+}
+
+
+
+
+----------------------------------------------------------------------------
+
+
+
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int b[4][5];
+	int *p = &b[0][0];
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 5; j++)
+		{
+			cout << "b[" << i << "] [" << j << "] -> ";
+			cin >> *p++;
+		}
+	}
+	p = &b[0][0];
+	for (int i = 0; i < 4; i++)
+	{
+		for (int j = 0; j < 5; j++)
+		{
+			cout << "b[" << i << "] [" << j << "] -> " << (*p)++ << endl;
+
+		}
+	}
+	system("pause");
+}
+
+
+
+
+-----------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+

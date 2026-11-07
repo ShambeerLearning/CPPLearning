@@ -1,0 +1,28 @@
+#include "stdafx.h"
+#include <iostream>
+#include <cmath>
+using namespace std;
+float pepsi(float n)
+{
+	float c;
+for (int k = 1; k <= n; k++)
+{
+	c = c * k;
+}
+return c;
+}
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	float k, n, S;
+	float sum = 0;
+	cout << "¬ведите число k - ";
+	cin >> k;
+	for (n = 1; n == k; n++)
+	{
+		S = 1 /( n * pepsi(n));
+		sum = sum + S;
+	}
+	cout << sum;
+	system("pause");
+}

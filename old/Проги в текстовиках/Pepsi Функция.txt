@@ -1,0 +1,51 @@
+#include "stdafx.h"
+#include <iostream>
+#include <cmath>
+using namespace std;
+float pepsicola()
+{
+	float x1, y1, x2, y2, C;
+	cout << " " << endl;
+	cout << "¬ведите x1 - ";
+	cin >> x1;
+	cout << "¬ведите y1 - ";
+	cin >> y1;
+	cout << "¬ведите x2 - ";
+	cin >> x2;
+	cout << "¬ведите y2 - ";
+	cin >> y2;
+	return C = (sqrt(pow((y2 - y1), 2))) + (sqrt(pow((x2 - x1), 2)));
+}
+void pepsiii(float a, float b, float c)
+{
+	if (a < (b + c) && b < (a + c) && c < (a + b))
+	{
+		cout << " " << endl;
+		cout << "“реугольник  существует" << endl;
+		cout << " " << endl;
+	}
+	else
+	{
+		cout << " " << endl;
+		cout << "“реугольник не существует" << endl;
+		cout << " " << endl;
+	}
+}
+
+int main()
+{ 
+	float a, b, c;
+	setlocale(LC_ALL, "Russian");
+	a = pepsicola();
+	b = pepsicola();
+	c = pepsicola();
+	cout << " " << endl;
+	cout << "а = " << a << endl;
+	cout << " " << endl;
+	cout << "b = " << b << endl;
+	cout << " " << endl;
+	cout << "c = " << c << endl; 
+	cout << " " << endl;
+	pepsiii(a, b, c);
+	system("pause");
+}

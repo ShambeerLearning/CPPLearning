@@ -1,0 +1,21 @@
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+void pepsicola()
+{
+	cout << "ѕепсикольный?" << endl;
+}
+void pepsiii(){
+	cout << "ѕепсикола" << endl;
+}
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	while (true)
+	{
+		pepsicola();
+		pepsiii();
+		cout << "ћ€у м€у" << endl;
+	}
+	system("pause");
+}

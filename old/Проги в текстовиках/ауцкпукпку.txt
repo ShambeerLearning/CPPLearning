@@ -1,0 +1,257 @@
+#include <iostream>
+#include <ctime>
+#include <windows.h>
+
+using namespace std;
+
+//Минимум максимум в массиве
+void MinMax(int *Mass, int rows, int &Minimum, int &Maximum)
+{
+
+    Minimum = Mass[0];
+    Maximum = Mass[0];
+
+    for(int i = 0; i < rows; i++)
+    {
+        if(Mass[i]<0 && Mass[i]<Minimum)
+        {
+            Minimum = Mass[i];
+        }
+        if(Mass[i]> 0 && Mass[i]>Maximum)
+        {
+            Maximum = Mass[i];
+        }
+    }
+
+
+}
+
+//Вывод элементов массива на экран
+void print(int* Mass, int rows)
+{
+    for(int i = 0; i < rows; i++)
+        {
+            cout << Mass[i] << " ";
+        }
+}
+
+//Вывод элементов матрицы на экран
+void print(int** Matr, int rows, int column)
+{
+    for(int i = 0; i < rows; i++)
+        {
+            for(int j = 0; j < column; j++)
+                {
+                    cout << Matr[i][j] << " ";
+                }
+            cout << endl;
+        }
+}
+
+//
+void zadachaOne(int *Mass, int rows)
+{
+    int Minimum, Maximum;
+    MinMax(Mass,rows,Minimum,Maximum);
+
+    for(int i = 0; i < rows; i++)
+    {
+        if(Mass[i] > Minimum && Mass[i] < 0)
+            {
+                Minimum = Mass[i];
+            }
+        if(Mass[i] < Maximum && Mass[i] > 0)
+            {
+                Maximum = Mass[i];
+            }
+    }
+
+    cout << "Динамический массив\n";
+    print(Mass,rows);
+    cout << "\nМаксимальный минимум и Минимальный максимум\n";
+    cout << '\n' << Minimum << " " << Maximum;
+
+}
+
+void zadachaTwo(int *Mass, int rows)
+{
+    int temp = 0;
+
+    for(int i = 0; i < rows-1; i++)
+    {
+        if(Mass[i]%Mass[i+1] == 0)
+        {
+            temp++;
+        }
+    }
+
+    print(Mass, rows);
+
+    cout << "\nКоличество пар: " << temp;
+
+}
+
+void zadachaTree(int **Matr, int rows, int column)
+{
+    int n = rows * column;
+    cout << "элементы в матрице заполняются" << n << endl;
+    //начальная строка
+    int m0 = 0;
+    //инкремент или декремент строки
+    int up = 1;
+    //флаг заполнения: заполнять столбец вверх или вниз
+    Matr[m0][0] = 1;
+    //заполняем начальную строку
+    for (int i = 1; i < column; i++)
+        {
+            if (i % 2 == 0)
+                {
+                    Matr[m0][i] = i * rows + 1;
+                }
+            else
+                {
+                  Matr[m0][i] = rows * (i + 1);
+                }
+        }
+    //заполняем остальные строки (чётный столбец = значение в предыдущей строке + 1),
+    //нечётный = зн. в пред. строке + 1
+    for (int m1 = m0 + up; m1 >= 0 && m1 < rows; m1 += up)
+    {
+        for (int i = 0; i < column; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    Matr[m1][i] = Matr[m1 - up][i] + 1;
+                }
+                else
+                {
+                    Matr[m1][i] = Matr[m1 - up][i] - 1;
+                }
+            }
+    }
+
+}
+
+void zadachaFour(int **Matr, int rows, int column)
+{
+    int summ = 0;
+    int MINIMUM = 1;
+    int MAXIMUX = -1;
+
+    int * mass = new int[rows];
+
+    for (int i = 0; i < rows; i++)
+        {
+            for(int j = 0; j < column; j++)
+                {
+                  summ = summ + Matr[i][j];
+                }
+            mass[i] = summ;
+            summ = 0;
+        }
+    cout << "НОВЫЙ ДИНАМИЧЕСКИЙ МАССИВ\n";
+    print(mass,rows);
+    MinMax(mass,rows,MINIMUM,MAXIMUX);
+    cout << "\nМинимальный элемент в новом массиве -> " << MINIMUM;
+
+}
+
+
+int main()
+{
+    //Русский язык
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
+    //Генератор случ. от времени
+    srand(time(NULL));
+    const int MAXIMUMRand = 200;
+    const int MINIMUMRand = -200;
+
+    //Меню
+    int input;
+    cout << "№ задачи: ";
+    cin >> input;
+
+    //Инициализация
+    int rows;
+    int column;
+    int *mass;
+    int **matr;
+
+
+    //выбор задачи
+    switch ( input ) {
+case 1:
+    cout << "Введите количество строк\n";
+    cin >> rows;
+
+    mass = new int[rows];
+
+    for (int i = 0; i < rows; i++)
+        {
+            mass[i] = rand() % (MAXIMUMRand - MINIMUMRand + 1) + MINIMUMRand;
+        }
+
+    zadachaOne(mass, rows);
+
+    break;
+
+case 2:
+    cout << "Введите количество строк\n";
+    cin >> rows;
+
+    mass = new int[rows];
+
+    for (int i = 0; i < rows; i++)
+        {
+            mass[i] = rand() % (MAXIMUMRand - MINIMUMRand + 1) + MINIMUMRand;
+        }
+
+    zadachaTwo(mass,rows);
+  break;
+
+case 3:
+    cout << "Введите количество строк и столбцов" << endl;
+    cin >> rows >> column;
+
+    matr = new int *[rows];
+    for(int i = 0; i < rows; i++)
+        {
+            matr[i] = new int[column];
+        }
+
+    zadachaTree(matr, rows, column);
+    print(matr,rows,column);
+
+  break;
+
+case 4:
+    cout << "Введите количество строк и столбцов\n";
+    cin >> rows >> column;
+
+    matr = new int *[rows];
+
+    for(int i = 0; i < rows; i++)
+        {
+            matr[i] = new int[column];
+        }
+
+    for (int i = 0; i < rows; i++)
+        {
+            for(int j = 0; j < column; j++)
+                {
+                   matr[i][j] = rand() % (MAXIMUMRand - MINIMUMRand + 1) + MINIMUMRand;
+                }
+        }
+
+    print(matr, rows,column);
+    zadachaFour(matr,rows,column);
+  break;
+
+default:
+    return main();
+  break;
+}
+    return 0;
+}

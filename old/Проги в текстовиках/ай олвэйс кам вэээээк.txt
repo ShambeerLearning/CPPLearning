@@ -1,0 +1,23 @@
+#include "stdafx.h"
+#include <iostream>
+#include <string>
+#include <algorithm>
+
+using namespace std;
+
+int main()
+{
+	setlocale(LC_ALL, "Russian");
+	int k;
+	string s;
+	cout << "Введите строку (ENG):" << endl;
+	getline(cin, s);
+	k = count(s.begin(), s.end(), 'a');
+	if (k > 0)
+		s.erase(remove(s.begin(), s.end(), 'b'), s.end());
+	cout << "Количество символов 'a': " << k << endl;
+	cout << "Искомая строка:" << endl;
+	cout << s << endl;
+	system("pause");
+	return 0;
+}

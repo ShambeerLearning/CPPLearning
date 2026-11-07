@@ -1,0 +1,40 @@
+#include <iostream>
+int main() {
+	setlocale(LC_ALL, "ru");
+	int a, b, result;
+	char q;
+	bool exit = false;
+	result = 0; 
+	std::cout << "Если хотите завершить программу введите любую букву" << std::endl;
+	while (exit == false) {
+		std::cout << "Введите пример - ";
+		std::cin >> a;
+		std::cin >> q;
+		std::cin >> b;
+
+		if (!a && !b) break;
+
+		switch (q)
+		{
+		case '+':
+			result = a + b;
+			break;
+		case '-':
+			result = a - b;
+			break;
+		case '*':
+			result = a * b;
+			break;
+		case '/':
+			result = a / b;
+			break;
+		default:
+			exit = true;
+
+		}
+
+
+		std::cout << "Результат - " << result << std::endl;
+	}
+	std::system("pause");
+}
